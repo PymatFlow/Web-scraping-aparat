@@ -2,11 +2,12 @@
 """
 Created on Tue Nov 19 11:15:35 2019
 
-@author: Kz
+@author: Kazem
 """
 
 import bs4
 import requests
+import pandas
 
 addres = 'https://www.aparat.com/eeiranmatlab/videos'
 page = requests.get(addres)
@@ -28,6 +29,5 @@ for item2,item3 in zip(tag2,tag3):
     dic["num_view"] = item3.text.split("\n")[1].replace("  بازدید","")
     l.append(dic)
 
-import pandas
 df = pandas.DataFrame(l)
 
